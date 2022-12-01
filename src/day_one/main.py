@@ -1,4 +1,6 @@
 from aocd import get_data
+from ..utils.aoctimer import aoctimer
+
 from dataclasses import dataclass
 from typing import List
 
@@ -15,7 +17,7 @@ class Elf:
 @dataclass
 class Elves:
     cohort: List[Elf]
-    
+
     def top_x(self, rank):
         sort=sorted(self.cohort, key = lambda x: x.total())
         return sort[-rank:] 
@@ -27,4 +29,10 @@ for elf in get_data().split("\n\n"):
     iter+=1 
     cohort.append(Elf(id=iter,inventory=[int(i) for i in elf.splitlines()]))
 elves=Elves(cohort=cohort)
-print(elves.top_x(1))
+
+answer_1 = sum([elf.total() for elf in elves.top_x(1)])
+answer_2 = sum([elf.total() for elf in elves.top_x(3)])
+
+if __name__ == '__main__': 
+    print(f'The answer to question 1 is {answer_1}')
+    print(f'The answer to question 2 is {answer_2}')
