@@ -1,18 +1,18 @@
 from aocd import get_data
 
 
-def sums(data: str) -> list[int]:
+def parse_input(data: str) -> list[int]:
     groups = data.strip().split("\n\n")
     return [sum([int(calorie) for calorie in group.split("\n")])
             for group in groups]
 
 
 def part_a(data: str) -> int:
-    return max(sums(data))
+    return max(parse_input(data))
 
 
 def part_b(data: str) -> int:
-    return sum(sorted(sums(data), reverse=True)[:3])
+    return sum(sorted(parse_input(data), reverse=True)[:3])
 
 
 test_data = """\
