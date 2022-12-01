@@ -1,18 +1,18 @@
 from aocd import get_data
 
 
-def part_a(data: str) -> int:
+def sums(data: str) -> list[int]:
     groups = data.strip().split("\n\n")
-    sums = [sum([int(calorie) for calorie in group.split("\n")])
+    return [sum([int(calorie) for calorie in group.split("\n")])
             for group in groups]
-    return max(sums)
+
+
+def part_a(data: str) -> int:
+    return max(sums(data))
 
 
 def part_b(data: str) -> int:
-    groups = data.strip().split("\n\n")
-    sums = [sum([int(calorie) for calorie in group.split("\n")])
-            for group in groups]
-    return sum(sorted(sums, reverse=True)[:3])
+    return sum(sorted(sums(data), reverse=True)[:3])
 
 
 test_data = """\
