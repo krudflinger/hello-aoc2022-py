@@ -85,11 +85,15 @@ cp -vr src/template src/day<day>
 
 Example:
 
-```
+```sh
 cp -vr src/template src/day01
 ```
 
-Add a `README.md` and use the [`aocd` runner](https://github.com/wimglenn/advent-of-code-data) to write input files as needed.
+Add a `README.md` and use the [`aocd` runner](https://github.com/wimglenn/advent-of-code-data) to write input files as needed. Execute solutions as a library module:
+
+```sh
+python -m src.day01.main
+```
 
 ---
 
