@@ -1,22 +1,17 @@
 from aocd import get_data
-import itertools
 
 
 def part_a(data):
-    manifest = [int(calorie) if calorie else calorie
-                for calorie in data.splitlines()]
-    sums = [sum(group)
-            for key, group in itertools.groupby(manifest, lambda x: x == '')
-            if not key]
+    groups = data.strip().split("\n\n")
+    sums = [sum([int(calorie) for calorie in group.split("\n")])
+            for group in groups]
     return max(sums)
 
 
 def part_b(data):
-    manifest = [int(calorie) if calorie else calorie
-                for calorie in data.splitlines()]
-    sums = [sum(group)
-            for key, group in itertools.groupby(manifest, lambda x: x == '')
-            if not key]
+    groups = data.strip().split("\n\n")
+    sums = [sum([int(calorie) for calorie in group.split("\n")])
+            for group in groups]
     return sum(sorted(sums, reverse=True)[:3])
 
 
