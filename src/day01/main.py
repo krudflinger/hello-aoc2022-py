@@ -1,14 +1,14 @@
 from aocd import get_data
 
 
-def part_a(data):
+def part_a(data: str) -> int:
     groups = data.strip().split("\n\n")
     sums = [sum([int(calorie) for calorie in group.split("\n")])
             for group in groups]
     return max(sums)
 
 
-def part_b(data):
+def part_b(data: str) -> int:
     groups = data.strip().split("\n\n")
     sums = [sum([int(calorie) for calorie in group.split("\n")])
             for group in groups]
